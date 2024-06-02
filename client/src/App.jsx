@@ -1,10 +1,10 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar.jsx'
-import Home from './components/Home.jsx'
-import Cart from './components/Cart.jsx'
-import Contact from './components/Contact.jsx'
-import MyAccount from './components/MyAccount.jsx'
+import Navbar from './core/Navbar.jsx'
+import Home from './core/Home.jsx'
+import Cart from './core/Cart.jsx'
+import Contact from './core/Contact.jsx'
+import MyAccount from './core/MyAccount.jsx'
 
 const App = () => {
 
