@@ -1,4 +1,4 @@
-import CreateProduct from '../admin/CreateProduct'
+import CreateProduct from '../admin/CreateProduct.jsx'
 const Home = () => {
     return (
         <div>

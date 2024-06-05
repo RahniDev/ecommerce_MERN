@@ -7,6 +7,8 @@ const app = express();
 const port = process.env.PORT || 8000
 const uri = process.env.DB_URL;
 
+const productRoutes = require('./routes/product')
+
 app.use(cors()); 
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -30,6 +32,8 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+app.use('/api', productRoutes)
 
 app.listen(port, () => {
 console.log(`App is listening on port ${port}`)

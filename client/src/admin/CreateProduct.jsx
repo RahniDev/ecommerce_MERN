@@ -1,5 +1,5 @@
 import { addProduct } from "./apiAdmin"
-
+import { useState } from "react"
 
 const CreateProduct = () => {
     const [values, setValues] = useState({
@@ -16,7 +16,8 @@ const CreateProduct = () => {
         formData: ''
     })
 
-    const { uuser, token } = isAuthenticated()
+    // const { user, token } = isAuthenticated()
+
     const {
         name,
         description,
@@ -29,13 +30,13 @@ const CreateProduct = () => {
         createdProduct,
         formData
     } = values
-}
+
 
 const clickSubmit = e => {
     e.preventDefault()
     setValues({ ...values, error: '' })
 
-    addProduct(token, formData).then((data) => {
+    addProduct(formData).then((data) => {
         if (data.error) {
             setValues({ ...values, error: data.error })
         } else {
@@ -50,6 +51,12 @@ const clickSubmit = e => {
             })
         }
     })
+}
+
+const handleChange = name => e => {
+    const value = name === 'photo' ? e.target.files[0] : e.target.value 
+    formData.set(name, value)
+    setValues({...values, [name]: value})
 }
 
 const addProductForm = () => (
@@ -121,5 +128,6 @@ return (
         {addProductForm()}
     </div>
 )
+}
 
-export default AddProduct
+export default CreateProduct

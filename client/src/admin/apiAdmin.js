@@ -1,12 +1,10 @@
-import { API } from '../config'
-
-export const addProduct = async (token, product) => {
+// authentication must be added (must be admin to add product)
+export const addProduct = async (product) => {
     try {
-        const response = await fetch(`${API}/product/add/`, {
+        const response = await fetch(`${process.env.REACT_APP_API}/product/add/`, {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
-                Authorization: `Bearer ${token}`
+                Accept: 'application/json'
             },
             body: product
         })
